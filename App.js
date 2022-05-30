@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View , TextInput, Dimensions} from 'react-native';
+import { StyleSheet, Text, View , TextInput, Dimensions, Button} from 'react-native';
 import  { useState } from 'react';
 
 const width = Dimensions.get('window').width
@@ -10,10 +10,14 @@ const Texto = (props) => {
 
 export default function App() {
   const [textito, setTextito] = useState('chanchito feliz');
+  const [textSubmit, setTextSubmit] = useState('');
   return (
     <View style={styles.container}>
-      <Texto>{textito}</Texto>
+      <Texto>{textSubmit}</Texto>
       <TextInput style={styles.input} placeholder='Escribir aqui' onChangeText={t => setTextito(t)} defaultValue={textito} ></TextInput>
+      <Button title='Aceptar' onPress={()=> {
+        setTextSubmit(textito)
+      }}></Button>
     </View>
   );
 }
