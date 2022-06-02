@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View , TextInput, Dimensions, Button} from 'react-native';
+import { StyleSheet, Text, View , TextInput, Dimensions, TouchableHighlight, TouchableNativeFeedback, TouchableOpacity, TouchableWithoutFeedback} from 'react-native';
 import  { useState } from 'react';
 
 const width = Dimensions.get('window').width
@@ -15,14 +15,62 @@ export default function App() {
     <View style={styles.container}>
       <Texto>{textSubmit}</Texto>
       <TextInput style={styles.input} placeholder='Escribir aqui' onChangeText={t => setTextito(t)} defaultValue={textito} ></TextInput>
-      <Button title='Aceptar' onPress={()=> {
+      <TouchableHighlight 
+      underlayColor={'#999'}
+      activeOpacity={'0.6'}
+      onPress={() => {
         setTextSubmit(textito)
-      }}></Button>
+        alert('El texto envidado con exito')
+      }}>
+        <Text>Aceptar</Text></TouchableHighlight>
+
+        <TouchableNativeFeedback  // SOLO PARA ANDROID
+        // background={TouchableNativeFeedback.Ripple('#00f', true)}
+      onPress={() => {
+        setTextSubmit(textito)
+        alert('El texto envidado con exito')
+      }}>
+        <View style={styles.view}>
+        <Text>Aceptar</Text>
+      </View>
+        </TouchableNativeFeedback>
+
+        <TouchableOpacity  
+        // style={styles.touchableOpacity},
+      onPress={() => {
+        setTextSubmit(textito)
+        alert('El texto envidado con exito')
+      }}>
+        <View style={styles.view}>
+        <Text>Aceptar</Text>
+      </View>
+      </TouchableOpacity>
+
+      
+      <TouchableWithoutFeedback  
+        // style={styles.touchableOpacity},
+      onPress={() => {
+        setTextSubmit(textito)
+        alert('El texto envidado con exito')
+      }}>
+        <View style={styles.view}>
+        <Text>Aceptar</Text>
+      </View>
+      </TouchableWithoutFeedback>
+
     </View>
   );
 }
 
 const styles = StyleSheet.create({
+  touchableOpacity: {
+    backgroundColor: '#EEE'
+  },
+  view: {
+    flex: 0.5,
+    height: 40,
+    width: 300,
+  },
   text: {
     color: 'black',
     fontSize: 24,
