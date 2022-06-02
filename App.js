@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View , TextInput, Dimensions, TouchableHighlight, TouchableNativeFeedback, TouchableOpacity, TouchableWithoutFeedback} from 'react-native';
+import { StyleSheet, Text, View , TextInput, Dimensions, TouchableHighlight, ScrollView} from 'react-native';
 import  { useState } from 'react';
 
 const width = Dimensions.get('window').width
@@ -13,6 +13,7 @@ export default function App() {
   const [textSubmit, setTextSubmit] = useState('');
   return (
     <View style={styles.container}>
+      <ScrollView style={styles.scrollView}>
       <Texto>{textSubmit}</Texto>
       <TextInput style={styles.input} placeholder='Escribir aqui' onChangeText={t => setTextito(t)} defaultValue={textito} ></TextInput>
       <TouchableHighlight 
@@ -23,46 +24,35 @@ export default function App() {
         alert('El texto envidado con exito')
       }}>
         <Text>Aceptar</Text></TouchableHighlight>
-
-        <TouchableNativeFeedback  // SOLO PARA ANDROID
-        // background={TouchableNativeFeedback.Ripple('#00f', true)}
-      onPress={() => {
-        setTextSubmit(textito)
-        alert('El texto envidado con exito')
-      }}>
-        <View style={styles.view}>
-        <Text>Aceptar</Text>
-      </View>
-        </TouchableNativeFeedback>
-
-        <TouchableOpacity  
-        // style={styles.touchableOpacity},
-      onPress={() => {
-        setTextSubmit(textito)
-        alert('El texto envidado con exito')
-      }}>
-        <View style={styles.view}>
-        <Text>Aceptar</Text>
-      </View>
-      </TouchableOpacity>
-
-      
-      <TouchableWithoutFeedback  
-        // style={styles.touchableOpacity},
-      onPress={() => {
-        setTextSubmit(textito)
-        alert('El texto envidado con exito')
-      }}>
-        <View style={styles.view}>
-        <Text>Aceptar</Text>
-      </View>
-      </TouchableWithoutFeedback>
-
+        <Texto> Text : {textSubmit}</Texto>
+        <Texto> Text : {textSubmit}</Texto><Texto> Text : {textSubmit}</Texto>
+        <Texto> Text : {textSubmit}</Texto><Texto> Text : {textSubmit}</Texto>
+        <Texto> Text : {textSubmit}</Texto><Texto> Text : {textSubmit}</Texto>
+        <Texto> Text : {textSubmit}</Texto><Texto> Text : {textSubmit}</Texto>
+        <Texto> Text : {textSubmit}</Texto><Texto> Text : {textSubmit}</Texto>
+        <Texto> Text : {textSubmit}</Texto><Texto> Text : {textSubmit}</Texto>
+        <Texto> Text : {textSubmit}</Texto><Texto> Text : {textSubmit}</Texto>
+        <Texto> Text : {textSubmit}</Texto><Texto> Text : {textSubmit}</Texto><Texto> Text : {textSubmit}</Texto><Texto> Text : {textSubmit}</Texto>
+        <Texto> Text : {textSubmit}</Texto><Texto> Text : {textSubmit}</Texto>
+        <Texto> Text : {textSubmit}</Texto><Texto> Text : {textSubmit}</Texto>
+        <Texto> Text : {textSubmit}</Texto><Texto> Text : {textSubmit}</Texto>
+        <Texto> Text : {textSubmit}</Texto><Texto> Text : {textSubmit}</Texto>
+        <Texto> Text : {textSubmit}</Texto><Texto> Text : {textSubmit}</Texto>
+        <Texto> Text : {textSubmit}</Texto><Texto> Text : {textSubmit}</Texto>
+        <Texto> Text : {textSubmit}</Texto><Texto> Text : {textSubmit}</Texto>
+        <Texto> Text : {textSubmit}</Texto><Texto> Text : {textSubmit}</Texto>
+        <Texto> Text : {textSubmit}</Texto><Texto> Text : {textSubmit}</Texto>
+        <Texto> Text : {textSubmit}</Texto><Texto> Text : {textSubmit}</Texto>
+        <Texto> Text : {textSubmit}</Texto><Texto> Text : {textSubmit}</Texto>
+        </ScrollView>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
+  scrollView:{
+    width: width,
+  },
   touchableOpacity: {
     backgroundColor: '#EEE'
   },
