@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, FlatList } from 'react-native';
+import { StyleSheet, Text, View, SectionList } from 'react-native';
 import  { useState } from 'react';
 
 
@@ -6,28 +6,45 @@ import  { useState } from 'react';
 export default function App() {
   return (
     <View style={styles.container}>
-     <FlatList
-     data={[
-       {key: '1', nombre: 'David'},
+     <SectionList
+     sections={[
+       {
+         title: 'Grupo1',
+       data: [{key: '1', nombre: 'David'},
        {key: '2', nombre: 'Ariel'},
        {key: '3', nombre: 'Raskovsky'},
        {key: '4', nombre: 'Capo'},
-       {key: '5', nombre: 'Muy'},
-       {key: '6', nombre: 'Bine'},
-       {key: '7', nombre: 'David'}
-     ]}
-     renderItem={({item})=> <Text style={styles.item}>{item.nombre}</Text>} >
+       {key: '5', nombre: 'Muy'},]
+      },
+      {
+        title: 'Grupo2',
+        data: [{key: '6', nombre: 'David'},
+        {key: '7', nombre: 'Ariel'},
+        {key: '8', nombre: 'Raskovsky'},
+        {key: '9', nombre: 'Capo'},
+        {key: '10', nombre: 'Muy'},]
+      }
+      ]}
+      renderItem={({ item}) => <Text style={styles.item}>{item.nombre}</Text>}
+      renderSectionHeader={({section}) => <Text style={styles.section}>{section.title}</Text>}
+      >
 
-     </FlatList>
+     </SectionList>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
- item: {padding:10,
+  section: {
+fontSize: 16,
+fontWeight: 'bold'
+  },
+ item: {
+   padding:10,
   
   borderBottomColor: '#ccc',
-borderBottomWidth: 1},
+  borderBottomWidth: 1
+},
   container: {
     flex: 1,
     flexDirection:  'column',
