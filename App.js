@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, ActivityIndicator } from 'react-native';
+import { StyleSheet, View, Image } from 'react-native';
 import  { useState, useEffect } from 'react';
 
 
@@ -7,15 +7,25 @@ export default function App() {
  
   return (
     <View style={styles.container}>
-    <ActivityIndicator 
-    size="large"
-    color="#000fff"
+    <Image 
+    style={styles.photo}
+    source={require('./assets/icon.png')}
+    
+    />
+    <Image 
+    style={styles.photo}
+    source={{uri:'https://placekitten.com/200/200'}}
+    
     />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
+  photo: {
+    height: 200,
+    width: 200,
+  },
   center: {
     flex: 1,
     alignItems: 'center',
