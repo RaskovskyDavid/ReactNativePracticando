@@ -1,4 +1,4 @@
-import { StyleSheet, View, Image } from 'react-native';
+import { StyleSheet, View, ImageBackground, Text } from 'react-native';
 import  { useState, useEffect } from 'react';
 
 
@@ -7,16 +7,14 @@ export default function App() {
  
   return (
     <View style={styles.container}>
-    <Image 
-    style={styles.photo}
-    source={require('./assets/icon.png')}
     
-    />
-    <Image 
+    <ImageBackground 
     style={styles.photo}
     source={{uri:'https://placekitten.com/200/200'}}
     
-    />
+    >
+      <Text>Gatito</Text>
+      </ImageBackground>
     </View>
   );
 }
