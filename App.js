@@ -1,38 +1,47 @@
-import { StyleSheet, View, ImageBackground, Text } from 'react-native';
+import { StyleSheet, View, Modal, Text, Button } from 'react-native';
 import  { useState, useEffect } from 'react';
 
 
 
 export default function App() {
- 
+ const [modal, setModal] = useState(false)
+
   return (
     <View style={styles.container}>
-    
-    <ImageBackground 
-    style={styles.photo}
-    source={{uri:'https://placekitten.com/200/200'}}
-    
+    <Modal
+    // animationType='fade' // aparece lentamente 
+    // animationType='none' // aparece lentamente 
+    animationType='slide' // aparece Deslizandose desde fuera de la pantalla 
+    transparent={true}
+    visible={modal}
     >
-      <Text>Gatito</Text>
-      </ImageBackground>
+      <View
+        style={styles.center}
+      >
+        <View style={styles.content}>
+          <Text>Soy un Modal</Text>
+          <Button title='Cerrar modal' onPress={()=> setModal(!modal)}></Button>
+        </View>
+      </View>
+      
+    </Modal>
+    <Button title='Abrir modal' onPress={() => setModal(!modal)} />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  photo: {
-    height: 200,
-    width: 200,
+  content:{
+backgroundColor:'#eee',
+flex: 1,
+    alignItems: 'center',
+    justifyContent:'center'
   },
-  center: {
+  center:{
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent:'center'
   },
- item: {padding:10,
-  
-  borderBottomColor: '#ccc',
-borderBottomWidth: 1},
   container: {
     flex: 1,
     flexDirection:  'column',
