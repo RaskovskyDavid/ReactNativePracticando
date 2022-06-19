@@ -1,23 +1,26 @@
 import { StyleSheet, View,   Button , Alert} from 'react-native';
 import  { useState, useEffect } from 'react';
+import * as Location from 'expo-location';
+import Constants from 'expo-constants';
 // import { Alert } from 'react-native-web';
 
-const crearDialogo = ()=> Alert.alert(
-  'Titulo',
-   'subtitulo o mensaje',
-   [
-     {
-       text:'Cancelar',
-       onPress: () => {},
-     }
-   ]
-)
+
 
 export default function App() {
-
+  const buscaLocation = async () => {
+    const { status } = await Location.requestBackgroundPermissionsAsync()
+    if (status !== 'granted')
+    {
+      return Alert.alert('No tenemos los permisos necesario para acceder a la location')
+    }
+    const location = await Location.getCurrentPositionAsync({})
+    console.log(location);
+  }
+useEffect(() => {
+  buscaLocation()
+})
   return (
     <View style={styles.container}>
-    <Button title='Abrir dialogo' onPress={crearDialogo} />
     </View>
   );
 }
